@@ -10,26 +10,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0; // inisialisasi variabel integer number
-  void tekanTombol(){ // method yang tidak mengembalikan apa apa
-    setState(() { // digunakan merefresh tampilan di halaman
-      number++; // perintah untuk menambah variabel integer
-    });
-  }
+  String message = "Ini adalah text";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Stateful Widget Demo"),),
+        appBar: AppBar(
+          title: Text("Anonymous Method"),
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(number.toString(), style: TextStyle(fontSize: 10 + number.toDouble()),),
+              Text(message),
               RaisedButton(
-                child: Text("Tambah Bilangan"),
-                onPressed: tekanTombol,  // mengarah ke method tekanTombol
+                child: Text("Tekan Saya"),
+                onPressed: () {
+                  setState(() {
+                    message = "Tombol sudah ditekan"; // contoh penggunaan anonymous method
+                  });
+                },
               )
             ],
           ),
@@ -38,3 +39,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+// anonymous method merupakan method yang bisa dipakai di satu tempat, contoh implementasinya di button tekan saya
