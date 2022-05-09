@@ -10,9 +10,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> widgets = [];
-  int counter = 1;
+  List<Widget> widgets = []; // variabel list
+  int counter = 1; // variabel angka
 
+  // membuat perulangan untuk variabel widgets didalam method myappstate
   // _MyAppState()
   // {
   //   for(int i = 0; i < 20; i++){
@@ -36,7 +37,7 @@ class _MyAppState extends State<MyApp> {
                   child: Text("Tambah Data"),
                   onPressed: () {
                     setState(() {
-                      widgets.add(Text(
+                      widgets.add(Text( //menambahkan data ke list variabel widgets
                         "Data ke-" + counter.toString(),
                         style: TextStyle(fontSize: 35),
                       ));
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                 RaisedButton(
                   child: Text("Hapus Data"),
                   onPressed: () {
-                    setState(() {
+                    setState(() { // menghapus data di list variabel widgets
                       widgets.removeLast();
                       counter--;
                     });
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: widgets,
+              children: widgets, // menampilkan data variabel widgets
             )
           ],
         ),
