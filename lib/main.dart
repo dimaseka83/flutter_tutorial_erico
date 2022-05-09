@@ -4,39 +4,27 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String message = "Ini adalah text";
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Anonymous Method"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(message),
-              RaisedButton(
-                child: Text("Tekan Saya"),
-                onPressed: () {
-                  setState(() {
-                    message = "Tombol sudah ditekan"; // contoh penggunaan anonymous method
-                  });
-                },
-              )
-            ],
+          appBar: AppBar(
+            title: Text("Latihan Text Style"),
           ),
-        ),
-      ),
+          body: Center(
+              child: Text(
+            "Ini adalah text",
+            style: TextStyle(
+                fontFamily: "SourceSansPro", // mengatur jenis font
+                fontStyle: FontStyle.italic, // mengatur font style
+                fontSize: 30, // mengatur ukuran font
+                decoration: TextDecoration.overline, // mengatur posisi garis
+                decorationColor: Colors.red, // 
+                decorationThickness: 5, // mengatur tebal garis
+                decorationStyle: TextDecorationStyle.wavy // mengatur style garis
+                ),
+          ))),
     );
   }
 }
-// anonymous method merupakan method yang bisa dipakai di satu tempat, contoh implementasinya di button tekan saya
