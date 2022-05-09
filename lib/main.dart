@@ -5,30 +5,34 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Aplikasi Hello World"),
+        appBar: AppBar(title: Text("Latihan Row dan Column"),),
+        body: 
+        Column(  // membuat text rata kebawah
+        mainAxisAlignment: MainAxisAlignment.center, // meletakkan posisi kolom berada di tengah secara vertikal
+        crossAxisAlignment: CrossAxisAlignment.start, // meletakkan posisi kolom berada di tengah secara horizontal
+          children: <Widget>[
+            Text("Text 1"),
+            Text("Text 2"),
+            Row(
+              children: <Widget>[
+                Text("Text 3"),
+                Text("Text 4"),
+              ],
+            )
+          ],
         ),
-        body: Center(
-            child: Container(
-                color: Colors.lightBlue,
-                width: 150,
-                height: 100,
-                child: Text(
-                  "Saya sedang melatih kemampuan flutter saya dan saya ingin berkembang",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20), // membuat styling text
-                  // textAlign: TextAlign.center, // membuat text ke tengah
-                  // maxLines: 2,  // membuat text hanya 2 baris
-                  // overflow: TextOverflow.clip, // membuat text jika lebih dari maxlines maka akan dipotong
-                  // softWrap: false, // membuat text menjadi rata satu baris
-                ))),
+        // Row(  // membuat text rata ke samping
+        // mainAxisAlignment: MainAxisAlignment.center, // meletakkan posisi row berada di tengah secara horizontal
+        //   children: <Widget>[
+        //     Text("Text 1"),
+        //     Text("Text 2")
+        //   ],
+        // ),
       ),
     );
   }
