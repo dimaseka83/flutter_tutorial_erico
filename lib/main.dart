@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,60 +12,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> widgets = []; // variabel list
-  int counter = 1; // variabel angka
-
-  // membuat perulangan untuk variabel widgets didalam method myappstate
-  // _MyAppState()
-  // {
-  //   for(int i = 0; i < 20; i++){
-  //     widgets.add(Text("Data ke-" + i.toString(), style: TextStyle(fontSize: 35),));
-  //   }
-  // }
+  Random random = Random(); // objek random
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Latihan ListView"),
+          title: Text("Latihan Animated Container"),
         ),
-        body: ListView(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                RaisedButton(
-                  child: Text("Tambah Data"),
-                  onPressed: () {
-                    setState(() {
-                      widgets.add(Text(
-                        //menambahkan data ke list variabel widgets
-                        "Data ke-" + counter.toString(),
-                        style: TextStyle(fontSize: 35),
-                      ));
-                      counter++;
-                    });
-                  },
-                ),
-                RaisedButton(
-                  child: Text("Hapus Data"),
-                  onPressed: () {
-                    setState(() {
-                      // menghapus data di list variabel widgets
-                      widgets.removeLast();
-                      counter--;
-                    });
-                  },
-                )
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: widgets, // menampilkan data variabel widgets
-            )
-          ],
-        ),
+        body: Center(
+            child: GestureDetector(
+          onTap: () {
+            setState(() {});
+          },
+          child: AnimatedContainer(
+            color: Color.fromARGB(255, random.nextInt(256), random.nextInt(256),
+                random.nextInt(256)),
+            duration: Duration(seconds: 1),
+            width: 50.0 + random.nextInt(101),
+            height: 50.0 + random.nextInt(101),
+          ),
+        )),
       ),
     );
   }
