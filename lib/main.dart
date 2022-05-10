@@ -37,7 +37,8 @@ class _MyAppState extends State<MyApp> {
                   child: Text("Tambah Data"),
                   onPressed: () {
                     setState(() {
-                      widgets.add(Text( //menambahkan data ke list variabel widgets
+                      widgets.add(Text(
+                        //menambahkan data ke list variabel widgets
                         "Data ke-" + counter.toString(),
                         style: TextStyle(fontSize: 35),
                       ));
@@ -48,7 +49,8 @@ class _MyAppState extends State<MyApp> {
                 RaisedButton(
                   child: Text("Hapus Data"),
                   onPressed: () {
-                    setState(() { // menghapus data di list variabel widgets
+                    setState(() {
+                      // menghapus data di list variabel widgets
                       widgets.removeLast();
                       counter--;
                     });
