@@ -12,28 +12,56 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Random random = Random(); // objek random
+  Color color1 = Colors.red;
+  Color color2 = Colors.amber;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Latihan Animated Container"),
+          title: Text("Latihan Draggable"),
         ),
-        body: Center(
-            child: GestureDetector( // untuk mendeteksi sebuah aksi trigger dari user 
-          onTap: () { // suatu method aksi
-            setState(() {}); // jika onTap ada trigger maka method ini akan jalan
-          },
-          child: AnimatedContainer( // animasi
-            color: Color.fromARGB(255, random.nextInt(256), random.nextInt(256), // membuat warna model argb(a = transparent, r = red, g = green, b = blue) secara random jika ada trigger method setState
-                random.nextInt(256)),
-            duration: Duration(seconds: 1), // durasi animasi
-            width: 50.0 + random.nextInt(101), // membuat lebar secara random jika ada trigger method setState
-            height: 50.0 + random.nextInt(101), // membuat tinggi secara random jika ada trigger method setState
-          ),
-        )),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Draggable<Color>(
+                  data: color1,
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: Material(
+                      color: color1,
+                      shape: StadiumBorder(),
+                      elevation: 3,
+                    ),
+                  ),
+                  childWhenDragging: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: Material(
+                      color: Colors.grey,
+                      shape: StadiumBorder(),
+                      elevation: 3,
+                    ),
+                  ),
+                  feedback: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: Material(
+                      color: color1.withOpacity(0.5),
+                      shape: StadiumBorder(),
+                      elevation: 3,
+                    ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
