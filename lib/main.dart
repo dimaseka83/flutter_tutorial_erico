@@ -7,56 +7,166 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Flexible Layout")),
-        body: Column(
+        appBar: AppBar(
+          title: Text("Latihan Stack dan Align "),
+        ),
+        body: Stack( // menerapkan stack dalam column
           children: <Widget>[
-            Flexible( // Widget untuk membuat container responsive
-              flex: 1, // perbandingan untuk membagi layar
-              child: Row( // Membuat Container didalam row
-                children: <Widget>[
-                  Flexible(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.red,
-                )
-              ),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.green,
-                )
-              ),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.purple,
-                )
-              ),
-                ],
-              ),
+            // background
+            Column( // widget dasar / background
+              children: <Widget>[
+                Flexible(
+                    flex: 1,
+                    child: Row(
+                      children: <Widget>[
+                        Flexible(
+                            flex: 1,
+                            child: Container(
+                              color: Colors.white,
+                            )),
+                        Flexible(
+                            flex: 1,
+                            child: Container(
+                              color: Colors.black12,
+                            ))
+                      ],
+                    )),
+                Flexible(
+                    flex: 1,
+                    child: Row(
+                      children: <Widget>[
+                        Flexible(
+                            flex: 1,
+                            child: Container(
+                              color: Colors.black12,
+                            )),
+                        Flexible(
+                            flex: 1,
+                            child: Container(
+                              color: Colors.white,
+                            ))
+                      ],
+                    ))
+              ],
             ),
-            Flexible(
-              flex: 2,
-              child: Container(
-                margin: EdgeInsets.all(5),
+            // listview dengan text
+            ListView( // widget kedua diatas widget dasar
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                    Container(
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          "Ini adalah text yang ada di lapisan tengah dari Stack.",
+                          style: TextStyle(fontSize: 30),
+                        )),
+                  ],
+                )
+              ],
+            ),
+            // button di tengah bawah
+            Align( // widget ke tiga diatas widget 2
+              alignment: Alignment(0.9, 0.9),
+              child: RaisedButton(
+                child: Text("My Button"),
                 color: Colors.amber,
-              )
-            ),
-            Flexible(
-              flex: 1,
-              child: Container(
-                margin: EdgeInsets.all(5),
-                color: Colors.blue,
-              )
-            ),
+                onPressed: () {},
+              ),
+            )
           ],
         ),
       ),
@@ -64,5 +174,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// catatan
-// jika didalam column diimplementasikan flexible, maka seluruh row atau container harus dibungkus widget flexible, jika tidak diimplementasikan maka row atau container tidak akan muncul di layar
+// stack merupakan sebuah widget yang mengatur susunan widget-widget yang lain
+// perbedaan stack, column, dan row
+// stack = susunan widget secara bertumpuk
+// column = susunan widget ke arah bawah
+// row = susunan widget ke arah samping
